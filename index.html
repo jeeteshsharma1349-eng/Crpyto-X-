@@ -3,92 +3,502 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#080b14">
+<meta name="theme-color" content="#070a12">
 <title>CryptoX</title>
 <style>
-:root{--bg:#070a12;--card:#0f1420;--card2:#121827;--line:#20283a;--txt:#f5f7fb;--muted:#858ea2;--purple:#8b4dff;--blue:#32c4ff;--green:#27dc91}
-*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--txt);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif}
-body{min-height:100vh;background:radial-gradient(700px 380px at 85% -5%,#30175e55,transparent 60%),#070a12}
-button,input,select{font:inherit}.app{max-width:620px;margin:auto;min-height:100vh;padding-bottom:92px}
-.top{height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 17px;border-bottom:1px solid #1b2230;background:#080b13ee;backdrop-filter:blur(18px);position:sticky;top:0;z-index:10}
-.logo{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:900}.logoIcon{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#8d4cff,#3c83ff);box-shadow:0 0 28px #7548ff55}
-.topRight{display:flex;gap:7px}.chip{border:1px solid #252d3e;background:#111624;border-radius:20px;padding:8px 11px;color:#dce2ee;font-size:12px}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#29db91;margin-right:6px}
-main{padding:15px}.hero{padding:21px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(145deg,#131827,#0c111c);box-shadow:0 20px 50px #0004;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;right:-60px;bottom:-70px;width:220px;height:180px;background:#7846ff38;filter:blur(40px)}
-.label{font-size:11px;letter-spacing:2px;color:#8993a7;font-weight:800}.balance{font-size:35px;font-weight:900;letter-spacing:-1.2px;margin-top:8px}.stats{display:flex;gap:12px;margin-top:8px;font-size:12px}.green{color:var(--green)}.chart{height:58px;margin-top:15px;display:flex;align-items:end;gap:5px}.bar{width:18px;border-radius:5px 5px 1px 1px;background:linear-gradient(#9b5cff,#31c4ff)}.bar:nth-child(1){height:24%}.bar:nth-child(2){height:35%}.bar:nth-child(3){height:30%}.bar:nth-child(4){height:48%}.bar:nth-child(5){height:42%}.bar:nth-child(6){height:70%}.bar:nth-child(7){height:58%}.bar:nth-child(8){height:82%}.bar:nth-child(9){height:72%}.bar:nth-child(10){height:100%}
-.quick{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:12px}.smallCard{padding:17px;border:1px solid var(--line);border-radius:20px;background:#0f1420}.smallCard b{display:block;font-size:22px;margin-top:8px}
-.head{display:flex;justify-content:space-between;align-items:end;margin:27px 2px 13px}.head h1,.head h2{margin:4px 0;font-size:25px;letter-spacing:-.7px}.head p{margin:0;color:var(--muted);font-size:12px}.search{width:145px;background:#0e1420;border:1px solid var(--line);border-radius:12px;color:#fff;padding:10px;outline:none}
-.coins{display:grid;grid-template-columns:1fr 1fr;gap:10px}.coin{padding:15px;border:1px solid #1c2a3d;border-radius:20px;background:linear-gradient(150deg,#101a29,#0b111c);box-shadow:0 12px 35px #0003;cursor:pointer}.coinTop{display:flex;justify-content:space-between}.icon{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-size:20px;font-weight:900;background:#151d2e;border:1px solid #29344a}.tag{font-size:9px;color:#61d9ff;border:1px solid #18526c;border-radius:15px;padding:6px 8px;height:max-content}.coinName{font-size:17px;font-weight:850;margin-top:15px}.ticker{font-size:10px;color:#43caff;font-weight:800;margin-top:2px}.coinPrice{font-weight:850;font-size:16px;margin-top:13px}.change{font-size:11px;margin-top:4px}.trade{margin-top:15px;padding:19px;border:1px solid var(--line);border-radius:23px;background:linear-gradient(145deg,#121827,#0d121d);box-shadow:0 18px 45px #0004}.tradeTop{display:flex;justify-content:space-between;align-items:center}.tradeTitle{font-size:21px;font-weight:900;margin-top:5px}.price{padding:8px 10px;border-radius:11px;background:#171e2d;border:1px solid var(--line);font-weight:800;font-size:12px}.fields{display:grid;grid-template-columns:1.4fr 1fr;margin-top:17px;gap:9px}label{font-size:11px;color:var(--muted);font-weight:700}input,select{width:100%;margin-top:6px;background:#0b101a;color:#fff;border:1px solid #222b3d;border-radius:12px;padding:12px;outline:none}.slots{display:flex;gap:6px;margin-top:14px}.slot{height:8px;flex:1;border-radius:10px;background:#242d40}.slot.on{background:linear-gradient(90deg,#8a4cff,#37c7ff)}.pay{display:flex;justify-content:space-between;align-items:center;margin-top:15px}.pay strong{font-size:19px}.notice{margin-top:13px;font-size:10px;line-height:1.45;color:#8e98aa;border:1px solid #20283a;border-radius:10px;padding:9px 10px;background:#0a0f18}.primary{width:100%;margin-top:11px;border:0;border-radius:14px;padding:14px;background:linear-gradient(90deg,#8050ff,#3e74ff);color:white;font-weight:900;box-shadow:0 12px 30px #6645e944}.history{border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#0f1420}.row{display:grid;grid-template-columns:1fr auto auto;gap:10px;padding:14px;border-bottom:1px solid var(--line);font-size:12px}.row:last-child{border:0}.muted{color:var(--muted)}.empty{text-align:center;color:var(--muted);padding:22px;font-size:12px}
-.bottom{position:fixed;bottom:0;left:0;right:0;height:72px;background:#0b0f18ee;border-top:1px solid #20283a;backdrop-filter:blur(18px);display:flex;justify-content:center;z-index:20}.nav{width:20%;max-width:125px;background:none;border:0;color:#778196;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px}.nav b{font-size:21px}.nav span{font-size:10px;font-weight:750}.nav.active{color:#9a68ff}
-@media(min-width:621px){main{padding:20px}.coins{grid-template-columns:repeat(4,1fr)}.quick{grid-template-columns:repeat(2,1fr)}}
+:root{--bg:#070a12;--card:#101522;--card2:#141a28;--line:#222b3d;--text:#f5f7fb;--muted:#8791a5;--purple:#8a50ff;--blue:#397cff;--green:#28dd91}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif}
+button,input,select{font:inherit}.app{max-width:620px;margin:auto;min-height:100vh;padding-bottom:84px}
+.top{height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;border-bottom:1px solid #1c2433;background:#080b13ee;backdrop-filter:blur(18px);position:sticky;top:0;z-index:20}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:20px}.logo i{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#8b4cff,#397eff);font-style:normal;box-shadow:0 0 28px #784aff55}.topchips{display:flex;gap:7px}.chip{border:1px solid #273044;background:#101624;border-radius:20px;padding:8px 11px;color:#dbe2ee;font-size:12px}.live{color:#b9c1cf}.live:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#27dc91;margin-right:6px}
+main{padding:15px}.view{display:none}.view.active{display:block}
+.hero,.panel,.history,.wallet-card,.profile-card,.refer-card{border:1px solid var(--line);border-radius:23px;background:linear-gradient(145deg,#121827,#0d121d);box-shadow:0 18px 48px #0004}
+.hero{padding:21px;overflow:hidden;position:relative}.hero:after{content:"";position:absolute;right:-50px;bottom:-80px;width:230px;height:170px;background:#784cff36;filter:blur(45px)}
+.label{font-size:10px;letter-spacing:2px;color:#8994a8;font-weight:850}.balance{font-size:34px;font-weight:900;margin-top:8px}.stats{display:flex;gap:12px;margin-top:7px;font-size:12px}.green{color:var(--green)}.muted{color:var(--muted)}
+.chart{height:52px;display:flex;align-items:end;gap:5px;margin-top:15px}.bar{width:18px;border-radius:5px 5px 1px 1px;background:linear-gradient(#a15cff,#32c5ff)}.bar:nth-child(1){height:25%}.bar:nth-child(2){height:38%}.bar:nth-child(3){height:31%}.bar:nth-child(4){height:50%}.bar:nth-child(5){height:44%}.bar:nth-child(6){height:67%}.bar:nth-child(7){height:58%}.bar:nth-child(8){height:83%}.bar:nth-child(9){height:74%}.bar:nth-child(10){height:100%}
+.quick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}.small{padding:17px;border:1px solid var(--line);border-radius:19px;background:#0f1420}.small b{display:block;font-size:21px;margin-top:8px}
+.head{display:flex;justify-content:space-between;align-items:end;margin:27px 2px 13px}.head h1,.head h2{margin:4px 0;font-size:25px}.head p{margin:0;font-size:12px}.search{width:145px;padding:10px;background:#0e1420;border:1px solid var(--line);border-radius:12px;color:#fff;outline:0}
+.coins{display:grid;grid-template-columns:1fr 1fr;gap:10px}.coin{padding:15px;border:1px solid #1d2b3e;border-radius:20px;background:linear-gradient(145deg,#101a29,#0b111b);cursor:pointer}.coinTop{display:flex;justify-content:space-between}.icon{width:43px;height:43px;border-radius:50%;display:grid;place-items:center;background:#151d2e;border:1px solid #2a354a;font-weight:900;font-size:20px}.tag{font-size:9px;color:#60d8ff;border:1px solid #1a566f;border-radius:15px;padding:6px 8px;height:max-content}.coinName{font-size:17px;font-weight:850;margin-top:14px}.ticker{color:#43caff;font-size:10px;font-weight:850}.coinPrice{font-size:16px;font-weight:850;margin-top:12px}.change{font-size:11px;margin-top:4px}
+.panel{padding:19px;margin-top:15px}.tradeTop{display:flex;justify-content:space-between;align-items:center}.tradeTitle{font-size:21px;font-weight:900;margin-top:4px}.price{padding:8px 10px;border:1px solid var(--line);background:#171e2d;border-radius:11px;font-size:12px;font-weight:800}.fields{display:grid;grid-template-columns:1.4fr 1fr;gap:9px;margin-top:16px}label{font-size:11px;color:var(--muted);font-weight:700}input,select{width:100%;margin-top:6px;padding:12px;border:1px solid #242e40;border-radius:12px;background:#0b1019;color:#fff;outline:0}.slots{display:flex;gap:6px;margin-top:14px}.slot{height:8px;flex:1;border-radius:10px;background:#252e40}.slot.on{background:linear-gradient(90deg,#8a4cff,#38c8ff)}.payout{display:flex;justify-content:space-between;align-items:center;margin-top:15px}.payout strong{font-size:20px}.notice{font-size:10px;line-height:1.45;color:#929caf;border:1px solid var(--line);padding:9px 10px;border-radius:10px;margin-top:13px}.primary{width:100%;border:0;border-radius:14px;padding:14px;margin-top:11px;background:linear-gradient(90deg,#8050ff,#3d73ff);color:#fff;font-weight:900;box-shadow:0 12px 30px #6045df44}
+.history{overflow:hidden}.row{display:grid;grid-template-columns:1fr auto auto;gap:10px;padding:14px;border-bottom:1px solid var(--line);font-size:12px}.row:last-child{border:0}.empty{padding:23px;text-align:center;color:var(--muted);font-size:12px}
+.pageTitle{font-size:27px;font-weight:900;margin:6px 0 18px}.wallet-card{padding:22px}.walletBalance{font-size:35px;font-weight:900;margin-top:8px}.walletStats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}.walletStat{padding:12px;border:1px solid var(--line);border-radius:14px;background:#0c111b}.walletStat b{display:block;margin-top:5px}.walletActions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}.action{padding:14px;border:0;border-radius:13px;font-weight:850;color:white;background:linear-gradient(90deg,#8050ff,#3d73ff)}.action.secondary{background:#171e2d;border:1px solid var(--line)}
+.listCard{margin-top:14px;padding:18px}.listItem{display:flex;justify-content:space-between;padding:15px 0;border-bottom:1px solid var(--line)}.listItem:last-child{border:0}
+.profileCard{padding:20px}.avatar{width:62px;height:62px;border-radius:50%;display:grid;place-items:center;font-size:25px;font-weight:900;background:linear-gradient(135deg,#8a4cff,#3b82ff);margin-bottom:12px}.profileName{font-size:22px;font-weight:900}.setting{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}.setting:last-child{border:0}
+.referCard{padding:22px}.referHero{font-size:34px;font-weight:950;line-height:1.02}.code{margin-top:18px;padding:15px;border:1px solid var(--line);border-radius:14px;background:#0b1019;display:flex;justify-content:space-between;font-weight:900;letter-spacing:4px}.copy{border:0;border-radius:10px;padding:7px 10px;color:white;background:#222b3c;letter-spacing:0}
+.bottom{position:fixed;left:0;right:0;bottom:0;height:72px;background:#0b0f18ee;border-top:1px solid #20283a;backdrop-filter:blur(18px);display:flex;justify-content:center;z-index:30}.nav{width:20%;max-width:125px;border:0;background:none;color:#778196;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;cursor:pointer}.nav b{font-size:21px}.nav span{font-size:10px;font-weight:800}.nav.active{color:#9a68ff}
+.modal{position:fixed;inset:0;background:#0009;display:none;align-items:center;justify-content:center;padding:25px;z-index:100;backdrop-filter:blur(8px)}.modal.show{display:flex}.winBox{position:relative;width:min(410px,100%);padding:30px 22px 22px;text-align:center;border:1px solid #7352df;border-radius:30px;background:radial-gradient(circle at 50% 0,#38206d 0,#17142a 34%,#0c121e 76%);box-shadow:0 30px 110px #000b,0 0 60px #754cff22;overflow:hidden}.winBox:before{content:"";position:absolute;inset:-2px;background:linear-gradient(120deg,transparent 15%,#ffffff10 48%,transparent 65%);transform:translateX(-100%);animation:shine 2.2s ease-out forwards;pointer-events:none}.winTop{position:relative;display:flex;align-items:center;justify-content:center;gap:8px;color:#8fffc9;font-size:11px;font-weight:900;letter-spacing:2px}.check{position:relative;width:82px;height:82px;margin:14px auto 0;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,#1e513f,#102c26);border:1px solid #38e99c;color:#55f3ad;font-size:42px;box-shadow:0 0 0 8px #29dd9110,0 0 45px #29dd9140}.winBox h2{font-size:29px;margin:16px 0 3px}.winAmount{font-size:36px;font-weight:950;color:#43efa5;letter-spacing:-1px;text-shadow:0 0 25px #31e89b44}.winMeta{margin-top:7px;color:#9aa5b8;font-size:12px}.winStats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}.winStat{padding:11px 6px;border:1px solid #29334a;border-radius:14px;background:#0b111cbb}.winStat span{display:block;color:#78849a;font-size:9px;font-weight:800;text-transform:uppercase}.winStat b{display:block;margin-top:4px;font-size:12px}.close{width:100%;margin-top:20px;padding:14px;border:0;border-radius:15px;color:white;font-weight:950;background:linear-gradient(90deg,#7c45ff,#397cff);box-shadow:0 12px 30px #4c6fff33}.close:active{transform:scale(.985)}@keyframes shine{to{transform:translateX(100%)}}
+@media(min-width:621px){.app{box-shadow:0 0 70px #0006}.coins{grid-template-columns:repeat(4,1fr)}}
+
+.txStatus{display:inline-flex;align-items:center;gap:5px;padding:5px 8px;border-radius:999px;font-size:9px;font-weight:900}.txStatus.pending{color:#ffd36b;background:#4a371322;border:1px solid #725a2a}.txStatus.processing{color:#64cfff;background:#193a4922;border:1px solid #28627a}.txStatus.complete{color:#48efaa;background:#173e3022;border:1px solid #28785a}.txAmount.deposit{color:#45efa5}.txAmount.withdraw{color:#ff8999}.txTimeline{display:flex;gap:5px;margin-top:7px}.txDot{height:4px;flex:1;border-radius:99px;background:#263047}.txDot.on{background:linear-gradient(90deg,#8050ff,#3d73ff)}
+.wallet-modal-form{display:grid;gap:10px}
+.activeTrades{display:grid;gap:10px;margin-top:14px}.activeTrade{padding:14px;border:1px solid #28334a;border-radius:18px;background:linear-gradient(145deg,#111a2a,#0b111b);display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}.activeTradeTop{display:flex;align-items:center;gap:9px}.miniIcon{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:#172033;border:1px solid #2b3850;font-weight:900}.tradeName{font-weight:900}.tradeSub{font-size:10px;color:var(--muted);margin-top:3px}.timer{font-size:22px;font-weight:950;color:#64cfff;min-width:55px;text-align:right}.timer.done{color:var(--green)}
+
+.planWrap{margin:18px 0}.planHead{display:flex;justify-content:space-between;align-items:end;margin-bottom:10px}.plans{display:grid;gap:10px}.plan{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 15px;border:1px solid #242e40;border-radius:16px;background:linear-gradient(135deg,#101725,#0b1019);box-shadow:0 10px 30px rgba(0,0,0,.18)}.planAmt{font-weight:900;font-size:16px}.planArrow{color:#6d7cff;font-weight:900}.planReturn{font-weight:900;color:#48e6a0}.planTime{font-size:11px;color:#8791a5;margin-top:3px}.planBtn{border:1px solid #34405a;background:#161e2d;color:#fff;border-radius:11px;padding:9px 11px;font-weight:800}.planBtn:active{transform:scale(.97)}
 </style>
 </head>
 <body>
 <div class="app">
-<header class="top">
-  <div class="logo"><div class="logoIcon">C</div>CryptoX</div>
-  <div class="topRight"><div class="chip"><span class="dot"></span>LIVE</div><div class="chip">₹10,000</div></div>
-</header>
+<header class="top"><div class="logo"><i>C</i>CryptoX</div><div class="topchips"><div class="chip live">LIVE</div><div class="chip" id="topBalance">₹10,000</div></div></header>
 <main>
-<section class="hero">
- <div class="label">TOTAL BALANCE</div>
- <div class="balance" id="balance">₹10,000.00</div>
- <div class="stats"><span class="green">↑ +2.48%</span><span class="muted">vs last 24 hours</span></div>
- <div class="chart"><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i></div>
+<section class="view active" id="homeView">
+ <section class="hero"><div class="label">TOTAL BALANCE</div><div class="balance" id="balance">₹10,000.00</div><div class="stats"><span class="green">↑ +2.48%</span><span class="muted">vs last 24 hours</span></div><div class="chart"><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i></div></section>
+ 
+ <section class="head"><div><div class="label">MARKETS</div><h1>Quick Crypto</h1><p>Choose a cryptocurrency to open a position</p></div><input class="search" id="search" placeholder="Search"></section>
+ <section class="coins" id="coins"></section>
+ <section class="planWrap"><div class="planHead"><div><div class="label">INVESTMENT PLANS</div><h2 style="margin:4px 0 0">Choose a Plan</h2></div><span class="muted" style="font-size:11px">45 min</span></div><div class="plans" id="plans">
+  <div class="plan"><div><div><span class="planAmt">₹521</span> <span class="planArrow">➜</span> <span class="planReturn">₹4,790</span></div><div class="planTime">⏰ 45 min · Prototype plan</div></div><button class="planBtn" onclick="selectPlan(521,4790)">Select</button></div>
+  <div class="plan"><div><div><span class="planAmt">₹999</span> <span class="planArrow">➜</span> <span class="planReturn">₹8,999</span></div><div class="planTime">⏰ 45 min · Prototype plan</div></div><button class="planBtn" onclick="selectPlan(999,8999)">Select</button></div>
+  <div class="plan"><div><div><span class="planAmt">₹1,500</span> <span class="planArrow">➜</span> <span class="planReturn">₹13,500</span></div><div class="planTime">⏰ 45 min · Prototype plan</div></div><button class="planBtn" onclick="selectPlan(1500,13500)">Select</button></div>
+  <div class="plan"><div><div><span class="planAmt">₹3,000</span> <span class="planArrow">➜</span> <span class="planReturn">₹15,600</span></div><div class="planTime">⏰ 45 min · Prototype plan</div></div><button class="planBtn" onclick="selectPlan(3000,15600)">Select</button></div>
+  <div class="plan"><div><div><span class="planAmt">₹5,000</span> <span class="planArrow">➜</span> <span class="planReturn">₹25,600</span></div><div class="planTime">⏰ 45 min · Prototype plan</div></div><button class="planBtn" onclick="selectPlan(5000,25600)">Select</button></div>
+  <div class="plan"><div><div><span class="planAmt">₹10,000</span> <span class="planArrow">➜</span> <span class="planReturn">₹45,600</span></div><div class="planTime">⏰ 45 min · Prototype plan</div></div><button class="planBtn" onclick="selectPlan(10000,45600)">Select</button></div>
+ </div><div class="notice" style="margin-top:10px">Prototype plan preview — displayed figures are not real investment returns.</div></section>
+
+ <section class="panel"><div class="tradeTop"><div><div class="label">TRADE TICKET</div><div class="tradeTitle" id="coinName">Bitcoin <span style="color:#46caff;font-size:11px">BTC</span></div></div><div class="price" id="coinPrice">$67,240</div></div>
+ <div class="fields"><label>Investment<input id="amount" type="number" min="10" value="1000"></label><label>Fixed Return<div style="margin-top:6px;padding:12px;border:1px solid #242e40;border-radius:12px;background:#0b1019;color:#fff;font-weight:850">10%</div></label></div>
+ <div class="slots" id="slots"></div><div class="payout"><span class="muted">Potential payout</span><strong id="payout">₹1,100.00</strong></div>
+ <div class="notice">Prototype interface — no real-money transactions are connected.</div>
+ <button class="primary" id="start">Start Trade · 30s</button></section>
+ <section class="head"><div><div class="label">ACTIVE</div><h2>Running Trades</h2><p class="muted">Each active trade settles automatically after 30 seconds.</p></div></section><section class="activeTrades" id="activeTrades"><div class="empty" style="border:1px solid var(--line);border-radius:18px;background:#0f1420">No active trades.</div></section>
+ <section class="head"><div><div class="label">ACTIVITY</div><h2>Recent Trades</h2></div></section><section class="history" id="homeHistory"><div class="empty">No trades yet.</div></section>
 </section>
-<section class="quick">
- <div class="smallCard"><div class="label">AVAILABLE</div><b id="available">₹10,000</b><span class="muted">available balance</span></div>
- <div class="smallCard"><div class="label">SESSION P&L</div><b class="green" id="pnl">₹0</b><span class="muted">current session</span></div>
+
+<section class="view" id="walletView">
+ <div class="pageTitle">Wallet</div><section class="wallet-card"><div class="label">TOTAL BALANCE</div><div class="walletBalance" id="walletBalance">₹10,000.00</div><div class="walletStats"><div class="walletStat"><span class="muted">Deposited</span><b>₹10,000</b></div><div class="walletStat"><span class="muted">Bonus</span><b>₹0</b></div><div class="walletStat"><span class="muted">Profit</span><b class="green" id="walletProfit">₹0</b></div></div><div class="walletActions"><button class="action" onclick="walletAction('deposit')">Deposit</button><button class="action secondary" onclick="walletAction('withdraw')">Withdraw</button></div></section>
+ <div class="head"><div><div class="label">TRANSACTIONS</div><h2>Recent Transactions</h2></div></div><section class="history" id="walletTransactions"><div class="listItem" style="padding:16px"><span>Opening balance</span><b>₹10,000</b></div></section>
 </section>
-<section class="head"><div><div class="label">MARKETS</div><h1>Quick Crypto</h1><p>Choose a cryptocurrency to open a position</p></div><input class="search" id="search" placeholder="Search"></section>
-<section class="coins" id="coins"></section>
-<section class="trade">
- <div class="tradeTop"><div><div class="label">TRADE TICKET</div><div class="tradeTitle" id="coinName">Bitcoin <span style="color:#46caff;font-size:11px">BTC</span></div></div><div class="price" id="coinPrice">$67,240</div></div>
- <div class="fields">
-  <label>Investment<input id="amount" type="number" value="1000" min="10"></label>
-  <label>Return<select id="rate"><option>5</option><option selected>10</option><option>20</option></select></label>
- </div>
- <div class="slots" id="slots"></div>
- <div class="pay"><span class="muted">Potential payout</span><strong id="payout">₹1,100.00</strong></div>
- <div class="notice">Practice/simulation interface. It is not connected to real-money deposits, withdrawals, or guaranteed investment returns.</div>
- <button class="primary" id="start">Start 30s Practice Trade</button>
+
+<section class="view" id="referView">
+ <div class="pageTitle">Refer & Earn</div><section class="referCard"><div class="label">INVITE FRIENDS</div><div class="referHero">Share &<br>grow together.</div><p class="muted">Your referral code and activity can be managed here.</p><div class="label" style="margin-top:20px">YOUR CODE</div><div class="code">CX7K2P9 <button class="copy" onclick="copyCode()">Copy</button></div></section>
+ <section class="listCard"><div class="listItem"><span>Referrals</span><b>0</b></div><div class="listItem"><span>Rewards</span><b>₹0</b></div></section>
 </section>
-<section class="head"><div><div class="label">ACTIVITY</div><h2>Trade History</h2></div></section>
-<section class="history" id="history"><div class="empty">No practice trades yet.</div></section>
+
+<section class="view" id="tradesView">
+ <div class="pageTitle">Trade History</div><section class="history" id="allHistory"><div class="empty">No trades yet.</div></section>
+</section>
+
+<section class="view" id="profileView">
+ <div class="pageTitle">Profile</div><section class="profileCard"><div class="avatar">C</div><div class="profileName">CryptoX User</div><div class="muted">Account settings</div><div class="setting"><span>Account verification</span><b class="green">Verified</b></div><div class="setting"><span>Notifications</span><b>›</b></div><div class="setting"><span>Security</span><b>›</b></div><div class="setting"><span>About & disclosure</span><b>›</b></div></section>
+</section>
 </main>
-<nav class="bottom">
- <button class="nav active"><b>⌂</b><span>Home</span></button><button class="nav"><b>▣</b><span>Wallet</span></button><button class="nav"><b>♧</b><span>Refer</span></button><button class="nav"><b>⌁</b><span>Trades</span></button><button class="nav"><b>○</b><span>Profile</span></button>
-</nav>
+<nav class="bottom"><button class="nav active" data-view="homeView"><b>⌂</b><span>Home</span></button><button class="nav" data-view="walletView"><b>▣</b><span>Wallet</span></button><button class="nav" data-view="referView"><b>♧</b><span>Refer</span></button><button class="nav" data-view="tradesView"><b>⌁</b><span>Trades</span></button><button class="nav" data-view="profileView"><b>○</b><span>Profile</span></button></nav>
 </div>
+
+<div class="modal" id="winModal"><div class="winBox"><div class="winTop">✦ TRADE COMPLETED</div><div class="check">✓</div><h2>Trade Won</h2><div class="winAmount" id="winAmount">+₹100.00</div><div class="winMeta" id="winMeta">Bitcoin · 10% return · 30 seconds</div><div class="winStats"><div class="winStat"><span>Investment</span><b id="winInvestment">₹1,000.00</b></div><div class="winStat"><span>Profit</span><b id="winProfit">+₹100.00</b></div><div class="winStat"><span>Payout</span><b id="winPayout">₹1,100.00</b></div></div><button class="close" onclick="closeWin()">Continue</button></div></div>
+
 <script>
-const coins=[
-{id:"btc",name:"Bitcoin",ticker:"BTC",icon:"₿",price:67240.21,change:2.41},
-{id:"eth",name:"Ethereum",ticker:"ETH",icon:"Ξ",price:2481.36,change:1.87},
-{id:"ltc",name:"Litecoin",ticker:"LTC",icon:"Ł",price:97.42,change:-.62},
-{id:"xrp",name:"XRP",ticker:"XRP",icon:"X",price:2.91,change:3.12},
-{id:"sol",name:"Solana",ticker:"SOL",icon:"S",price:151.84,change:4.22},
-{id:"bnb",name:"BNB",ticker:"BNB",icon:"B",price:612.48,change:.91},
-{id:"doge",name:"Dogecoin",ticker:"DOGE",icon:"Ð",price:.18,change:-1.11},
-{id:"ada",name:"Cardano",ticker:"ADA",icon:"A",price:.62,change:1.42}
+const COINS = [
+  {id:"btc",name:"Bitcoin",ticker:"BTC",icon:"₿",price:67240.21,change:2.41},
+  {id:"eth",name:"Ethereum",ticker:"ETH",icon:"Ξ",price:2481.36,change:1.87},
+  {id:"ltc",name:"Litecoin",ticker:"LTC",icon:"Ł",price:97.42,change:-0.62},
+  {id:"xrp",name:"XRP",ticker:"XRP",icon:"X",price:2.91,change:3.12},
+  {id:"sol",name:"Solana",ticker:"SOL",icon:"S",price:151.84,change:4.22},
+  {id:"bnb",name:"BNB",ticker:"BNB",icon:"B",price:612.48,change:0.91},
+  {id:"doge",name:"Dogecoin",ticker:"Ð",price:0.18,change:-1.11},
+  {id:"ada",name:"Cardano",ticker:"ADA",icon:"A",price:0.62,change:1.42}
 ];
-let selected=coins[0],balance=10000,pnl=0,used={};
-const $=x=>document.querySelector(x), money=x=>"₹"+Number(x).toLocaleString("en-IN",{minimumFractionDigits:2,maximumFractionDigits:2});
-function renderCoins(){
- const q=$("#search").value.toLowerCase();$("#coins").innerHTML=coins.filter(c=>(c.name+c.ticker).toLowerCase().includes(q)).map(c=>`<article class="coin" data-id="${c.id}"><div class="coinTop"><div class="icon">${c.icon}</div><div class="tag">30 SEC</div></div><div class="coinName">${c.name}</div><div class="ticker">${c.ticker}</div><div class="coinPrice">$${c.price.toLocaleString()}</div><div class="change ${c.change>=0?"green":""}">${c.change>=0?"+":""}${c.change}%</div></article>`).join("");
- document.querySelectorAll(".coin").forEach(e=>e.onclick=()=>select(coins.find(c=>c.id===e.dataset.id)));
+
+const STORAGE_KEY = "cryptox_state_v7";
+const START_BALANCE = 10000;
+const FIXED_RATE = 10;
+const DURATION_MS = 30000;
+
+let state = loadState();
+let selectedId = state.selectedId || "btc";
+let tickTimer = null;
+let activeModalTrade = null;
+let winQueue = [];
+
+const $ = s => document.querySelector(s);
+const money = n => "₹" + Number(n || 0).toLocaleString("en-IN", {
+  minimumFractionDigits:2, maximumFractionDigits:2
+});
+const coin = () => COINS.find(c => c.id === selectedId) || COINS[0];
+
+function loadState(){
+  try{
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+    if(saved && typeof saved.balance === "number"){
+      saved.trades = Array.isArray(saved.trades) ? saved.trades : [];
+      saved.slots = saved.slots || {};
+      saved.balance = Number(saved.balance);
+      saved.pnl = Number(saved.pnl || 0);
+      saved.transactions = Array.isArray(saved.transactions) ? saved.transactions : [];
+      return saved;
+    }
+  }catch(e){}
+  return {balance:START_BALANCE,pnl:0,slots:{},trades:[],transactions:[],selectedId:"btc"};
 }
-function select(c){selected=c;$("#coinName").innerHTML=`${c.name} <span style="color:#46caff;font-size:11px">${c.ticker}</span>`;$("#coinPrice").textContent="$"+c.price.toLocaleString();renderSlots()}
-function renderSlots(){let n=used[selected.id]||0;$("#slots").innerHTML=[0,1,2,3,4].map(i=>`<i class="slot ${i<n?"on":""}"></i>`).join("")}
-function updatePay(){let a=+$("#amount").value||0,r=+$("#rate").value;$("#payout").textContent=money(a*(1+r/100))}
-$("#search").oninput=renderCoins;$("#amount").oninput=updatePay;$("#rate").onchange=updatePay;
-$("#start").onclick=()=>{
- let a=+$("#amount").value,r=+$("#rate").value,n=used[selected.id]||0;
- if(a<10)return alert("Minimum ₹10.");if(n>=5)return alert("Maximum 5 open slots for this coin.");if(a>balance)return alert("Insufficient balance.");
- balance-=a;used[selected.id]=n+1;$("#balance").textContent=money(balance);$("#available").textContent=money(balance);renderSlots();
- let id="t"+Date.now();$("#history").insertAdjacentHTML("afterbegin",`<div class="row" id="${id}"><div><b>${selected.name}</b><br><span class="muted">₹${a.toLocaleString("en-IN")} · ${r}%</span></div><div class="timer">30s</div><div class="muted">Running</div></div>`);
- let left=30, el=$("#"+id);
- let timer=setInterval(()=>{left--;el.querySelector(".timer").textContent=left+"s";if(left<=0){clearInterval(timer);let profit=a*r/100;balance+=a+profit;pnl+=profit;used[selected.id]--;$("#balance").textContent=money(balance);$("#available").textContent=money(balance);$("#pnl").textContent=money(pnl);el.querySelector(".timer").textContent="WIN";el.lastElementChild.innerHTML='<span class="green">+'+money(profit)+'</span>';renderSlots()}},1000)
-};
-renderCoins();select(selected);updatePay();
+
+function saveState(){
+  state.selectedId = selectedId;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+
+function updateBalances(){
+  const balanceText = money(state.balance);
+  const ids = ["balance","walletBalance","topBalance"];
+  ids.forEach(id => { const el = document.getElementById(id); if(el) el.textContent = balanceText; });
+  const pnl = document.getElementById("walletProfit");
+  if(pnl) pnl.textContent = money(state.pnl);
+}
+
+function renderCoins(){
+  const q = ($("#search")?.value || "").trim().toLowerCase();
+  const list = COINS.filter(c => (c.name+" "+c.ticker).toLowerCase().includes(q));
+  $("#coins").innerHTML = list.map(c => `
+    <article class="coin" data-id="${c.id}">
+      <div class="coinTop">
+        <div class="icon">${c.icon}</div>
+        <div class="tag">30 SEC</div>
+      </div>
+      <div class="coinName">${c.name}</div>
+      <div class="ticker">${c.ticker}</div>
+      <div class="coinPrice">$${Number(c.price).toLocaleString()}</div>
+      <div class="change ${c.change >= 0 ? "green" : ""}">
+        ${c.change >= 0 ? "+" : ""}${c.change}%
+      </div>
+    </article>
+  `).join("");
+
+  document.querySelectorAll(".coin").forEach(el => {
+    el.addEventListener("click", () => selectCoin(el.dataset.id));
+  });
+}
+
+function selectCoin(id){
+  selectedId = id;
+  const c = coin();
+  $("#coinName").innerHTML = `${c.name} <span style="color:#46caff;font-size:11px">${c.ticker}</span>`;
+  $("#coinPrice").textContent = "$" + Number(c.price).toLocaleString();
+  renderSlots();
+  saveState();
+}
+
+function renderSlots(){
+  const used = Number(state.slots[selectedId] || 0);
+  $("#slots").innerHTML = [0,1,2,3,4].map(i =>
+    `<i class="slot ${i < used ? "on" : ""}"></i>`
+  ).join("");
+}
+
+function updatePayout(){
+  const amount = Math.max(0, Number($("#amount").value) || 0);
+  $("#payout").textContent = money(amount * 1.10);
+}
+
+function renderActiveTrades(){
+  const box = document.getElementById("activeTrades");
+  if(!box) return;
+  const running = state.trades.filter(t => t.status === "Running").sort((a,b)=>a.endsAt-b.endsAt);
+  if(!running.length){
+    box.innerHTML = '<div class="empty" style="border:1px solid var(--line);border-radius:18px;background:#0f1420">No active trades.</div>';
+    return;
+  }
+  box.innerHTML = running.map(t => {
+    const c = COINS.find(x => x.id === t.coinId) || COINS[0];
+    const left = Math.max(0, t.endsAt - Date.now());
+    return `<div class="activeTrade" data-active="${t.id}">
+      <div><div class="activeTradeTop"><div class="miniIcon">${c.icon}</div><div><div class="tradeName">${c.name} <span class="ticker">${c.ticker}</span></div><div class="tradeSub">${money(t.amount)} · Fixed 10% · 30s</div></div></div></div>
+      <div class="timer" data-countdown="${t.id}">${Math.ceil(left/1000)}s</div>
+    </div>`;
+  }).join("");
+}
+
+function renderHistory(){
+  const html = state.trades.slice().sort((a,b)=>b.createdAt-a.createdAt).slice(0,50).map(t => {
+    const c = COINS.find(x => x.id === t.coinId) || COINS[0];
+    let status = t.status;
+    let right = status === "Won" ? `<span class="green">+${money(t.profit)}</span>` :
+                status === "Running" ? `<span class="muted" data-countdown="${t.id}">30s</span>` :
+                `<span class="muted">${status}</span>`;
+    return `
+      <div class="row" data-history="${t.id}">
+        <div>
+          <b>${c.name}</b><br>
+          <span class="muted">₹${Number(t.amount).toLocaleString("en-IN")} · 10% · 30s</span>
+        </div>
+        <div>${status}</div>
+        <div>${right}</div>
+      </div>`;
+  }).join("") || '<div class="empty">No trades yet.</div>';
+
+  $("#homeHistory").innerHTML = html;
+  $("#allHistory").innerHTML = html;
+}
+
+function renderActiveCountdowns(){
+  const now = Date.now();
+  state.trades.filter(t => t.status === "Running").forEach(t => {
+    const left = Math.max(0, t.endsAt - now);
+    document.querySelectorAll(`[data-countdown="${t.id}"]`).forEach(n => {
+      n.textContent = Math.ceil(left/1000) + "s";
+      n.classList.toggle("done", left <= 0);
+    });
+  });
+  renderActiveTrades();
+}
+
+function finishTrade(t){
+  if(t.status !== "Running") return;
+
+  const profit = Number(t.amount) * FIXED_RATE / 100;
+  t.status = "Won";
+  t.profit = profit;
+  t.payout = Number(t.amount) + profit;
+  t.finishedAt = Date.now();
+
+  state.balance += t.payout;
+  state.pnl += profit;
+  state.slots[t.coinId] = Math.max(0, Number(state.slots[t.coinId] || 0) - 1);
+
+  saveState();
+  updateBalances();
+  renderSlots();
+  renderHistory();
+
+  queueWin(t);
+}
+
+function showWin(t){
+  activeModalTrade = t;
+  const c = COINS.find(x => x.id === t.coinId) || COINS[0];
+  $("#winAmount").textContent = "+" + money(t.profit);
+  $("#winMeta").textContent = `${c.name} · 10% return · 30 seconds`;
+  $("#winInvestment").textContent = money(t.amount);
+  $("#winProfit").textContent = "+" + money(t.profit);
+  $("#winPayout").textContent = money(t.payout);
+  $("#winModal").classList.add("show");
+}
+
+function queueWin(t){
+  winQueue.push(t);
+  if(!document.getElementById("winModal").classList.contains("show")) showNextWin();
+}
+
+function showNextWin(){
+  if(!winQueue.length) return;
+  showWin(winQueue.shift());
+}
+
+function closeWin(){
+  $("#winModal").classList.remove("show");
+  activeModalTrade = null;
+  setTimeout(showNextWin, 80);
+}
+window.closeWin = closeWin;
+
+function processExpiredTrades(){
+  const now = Date.now();
+  state.trades
+    .filter(t => t.status === "Running" && t.endsAt <= now)
+    .forEach(finishTrade);
+}
+
+function startCountdownLoop(){
+  clearInterval(tickTimer);
+  tickTimer = setInterval(() => {
+    processExpiredTrades();
+    renderActiveCountdowns();
+  }, 500);
+}
+
+function startTrade(){
+  const amount = Number($("#amount").value);
+  const used = Number(state.slots[selectedId] || 0);
+
+  if(!Number.isFinite(amount) || amount < 10){
+    alert("Minimum trade amount is ₹10.");
+    return;
+  }
+  if(used >= 5){
+    alert("Maximum 5 active trades are allowed for this coin.");
+    return;
+  }
+  if(amount > state.balance){
+    alert("Insufficient available balance.");
+    return;
+  }
+
+  const t = {
+    id: "T" + Date.now() + Math.random().toString(36).slice(2,7),
+    coinId: selectedId,
+    amount,
+    rate: FIXED_RATE,
+    createdAt: Date.now(),
+    endsAt: Date.now() + DURATION_MS,
+    status: "Running",
+    profit: 0,
+    payout: 0
+  };
+
+  state.balance -= amount;
+  state.slots[selectedId] = used + 1;
+  state.trades.push(t);
+
+  saveState();
+  updateBalances();
+  renderSlots();
+  renderHistory();
+  renderActiveTrades();
+  renderActiveCountdowns();
+}
+
+function walletAction(type){
+  const modal = document.getElementById("walletModal");
+  const title = document.getElementById("walletModalTitle");
+  const body = document.getElementById("walletModalBody");
+  if(type === "deposit") {
+    title.textContent = "Deposit funds";
+    body.innerHTML = `<div class="wallet-modal-form">
+      <label>Amount<input id="depositAmount" type="number" min="10" placeholder="Enter amount"></label>
+      <label>Method<select id="depositMethod"><option>UPI</option><option>Bank Transfer</option><option>Crypto</option></select></label>
+      <button class="primary" onclick="submitDeposit()">Continue to Deposit</button>
+      <div class="notice">Prototype transaction flow: Pending → Processing → Completed.</div>
+    </div>`;
+  } else {
+    title.textContent = "Withdraw funds";
+    body.innerHTML = `<div class="wallet-modal-form">
+      <label>Account Holder Name<input id="holderName" placeholder="Name as per bank account"></label>
+      <label>Bank Name<input id="bankName" placeholder="Bank name"></label>
+      <label>Account Number<input id="accountNumber" inputmode="numeric" placeholder="Account number"></label>
+      <label>IFSC Code<input id="ifsc" placeholder="IFSC code"></label>
+      <label>Withdrawal Amount<input id="withdrawAmount" type="number" min="10" placeholder="Enter amount"></label>
+      <button class="primary" onclick="submitWithdrawal()">Continue to Withdrawal</button>
+      <div class="notice">Prototype transaction flow: Pending → Processing → Completed.</div>
+    </div>`;
+  }
+  modal.classList.add("show");
+}
+
+function closeWalletModal(){ document.getElementById("walletModal").classList.remove("show"); }
+function addTransaction(type, amount, meta){
+  const tx = {id:"TX"+Date.now()+Math.random().toString(36).slice(2,6),type,amount,status:"Pending",createdAt:Date.now(),meta:meta||""};
+  state.transactions.unshift(tx);
+  saveState();
+  renderTransactions();
+  setTimeout(()=>setTransactionStatus(tx.id,"Processing"),5000);
+  setTimeout(()=>setTransactionStatus(tx.id,"Completed"),10000);
+  return tx;
+}
+function setTransactionStatus(id,status){
+  const tx = state.transactions.find(x=>x.id===id);
+  if(!tx || tx.status === "Completed") return;
+  tx.status=status;
+  if(status === "Completed" && !tx.settled){
+    tx.settled=true;
+    if(tx.type === "Deposit") state.balance += Number(tx.amount);
+    if(tx.type === "Withdrawal") state.balance = Math.max(0,state.balance);
+    saveState();
+    updateBalances();
+  } else saveState();
+  renderTransactions();
+}
+function recoverTransactions(){
+  const now=Date.now();
+  state.transactions.forEach(tx=>{
+    const age=now-tx.createdAt;
+    if(tx.status!=="Completed") {
+      if(age>=10000) setTransactionStatus(tx.id,"Completed");
+      else if(age>=5000) setTransactionStatus(tx.id,"Processing");
+    }
+  });
+}
+function renderTransactions(){
+  const box=document.getElementById("walletTransactions");
+  if(!box) return;
+  const rows=state.transactions.slice(0,20).map(tx=>{
+    const cls=tx.status.toLowerCase();
+    const amountCls=tx.type.toLowerCase();
+    const sign=tx.type==="Deposit"?"+":"−";
+    const age=Date.now()-tx.createdAt;
+    const step=tx.status==="Pending"?1:tx.status==="Processing"?2:3;
+    return `<div class="listItem" style="display:block">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><div><b>${tx.type}</b><div class="muted" style="font-size:10px;margin-top:3px">${tx.meta||"Transaction request"}</div></div><div style="text-align:right"><b class="txAmount ${amountCls}">${sign}${money(tx.amount)}</b><div style="margin-top:5px"><span class="txStatus ${cls}">${tx.status}</span></div></div></div>
+      <div class="txTimeline"><i class="txDot ${step>=1?"on":""}"></i><i class="txDot ${step>=2?"on":""}"></i><i class="txDot ${step>=3?"on":""}"></i></div>
+    </div>`;
+  }).join("");
+  box.innerHTML = `<div class="listItem" style="padding:16px"><span>Opening balance</span><b>₹10,000</b></div>` + (rows || "<div class=\"empty\">No wallet transactions yet.</div>");
+}
+function submitDeposit(){
+  const amount=Number(document.getElementById("depositAmount")?.value||0);
+  const method=document.getElementById("depositMethod")?.value||"UPI";
+  if(amount<10){alert("Enter a valid deposit amount.");return;}
+  addTransaction("Deposit",amount,method);
+  closeWalletModal();
+}
+function submitWithdrawal(){
+  const name=document.getElementById("holderName")?.value.trim();
+  const bank=document.getElementById("bankName")?.value.trim();
+  const acct=document.getElementById("accountNumber")?.value.trim();
+  const ifsc=document.getElementById("ifsc")?.value.trim();
+  const amount=Number(document.getElementById("withdrawAmount")?.value||0);
+  if(!name||!bank||!acct||!ifsc||amount<10){alert("Please fill all bank details and a valid amount.");return;}
+  if(amount>state.balance){alert("Insufficient available balance.");return;}
+  state.balance-=amount;
+  updateBalances();
+  addTransaction("Withdrawal",amount,`${bank} · •••• ${acct.slice(-4)}`);
+  closeWalletModal();
+}
+function selectPlan(amount, payout){
+  const input=document.getElementById("amount");
+  if(input){ input.value=amount; input.dispatchEvent(new Event("input",{bubbles:true})); }
+  const pay=document.getElementById("payout");
+  if(pay) pay.textContent="₹"+Number(payout).toLocaleString("en-IN",{minimumFractionDigits:2,maximumFractionDigits:2});
+  document.querySelector('.panel')?.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+window.closeWalletModal=closeWalletModal;
+window.submitDeposit=submitDeposit;
+window.submitWithdrawal=submitWithdrawal;
+window.walletAction=walletAction;
+
+function copyCode(){
+  navigator.clipboard?.writeText("CX7K2P9");
+  alert("Referral code copied.");
+}
+window.copyCode = copyCode;
+
+function showView(id){
+  document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
+  const target = document.getElementById(id);
+  if(target) target.classList.add("active");
+  document.querySelectorAll(".nav").forEach(n =>
+    n.classList.toggle("active", n.dataset.view === id)
+  );
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+document.querySelectorAll(".nav").forEach(n =>
+  n.addEventListener("click", () => showView(n.dataset.view))
+);
+
+$("#search").addEventListener("input", renderCoins);
+$("#amount").addEventListener("input", updatePayout);
+$("#start").addEventListener("click", startTrade);
+
+renderCoins();
+selectCoin(selectedId);
+updatePayout();
+updateBalances();
+renderHistory();
+renderTransactions();
+recoverTransactions();
+renderActiveTrades();
+processExpiredTrades();
+renderActiveCountdowns();
+startCountdownLoop();
+
 </script>
+
+<div class="modal" id="walletModal">
+  <div class="winBox" style="text-align:left">
+    <div class="label">WALLET</div>
+    <h2 id="walletModalTitle" style="margin:8px 0 15px">Wallet</h2>
+    <div id="walletModalBody"></div>
+    <button class="close" onclick="closeWalletModal()">Cancel</button>
+  </div>
+</div>
+
 </body>
 </html>
