@@ -552,6 +552,8 @@ function selectPlan(amount, payout){
   document.querySelectorAll('.plan').forEach(x=>x.classList.remove('selected'));
   const btn=[...document.querySelectorAll('.planBtn')].find(b=>b.getAttribute('onclick')?.includes(String(amount)));
   btn?.closest('.plan')?.classList.add('selected');
+  const startBtn = document.getElementById('startLong');
+  if(startBtn){ startBtn.textContent = `Start 45-Min Trade · ${money0(amount)}`; }
   document.getElementById('startLong')?.scrollIntoView({behavior:'smooth',block:'center'});
 }
 
@@ -583,6 +585,7 @@ document.querySelectorAll(".nav").forEach(n =>
 $("#search").addEventListener("input", renderCoins);
 $("#amount").addEventListener("input", updatePayout);
 $("#start").addEventListener("click", startTrade);
+$("#startLong").addEventListener("click", startLongTrade);
 
 renderCoins();
 selectCoin(selectedId);
@@ -608,4 +611,4 @@ startCountdownLoop();
 </div>
 
 </body>
- </html>
+</html>
